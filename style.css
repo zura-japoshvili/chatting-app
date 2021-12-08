@@ -14,6 +14,7 @@ body{
     background-color: #f7f7f7;
 }
 .wrapper{
+    margin: 20px 0;
     background-color: #fff;
     width: 450px;
     border-radius: 16px;
@@ -164,7 +165,7 @@ body{
     max-height: 350px;
     overflow-y: auto;
 }
-.users-list::-webkit-scrollbar{
+:is(.users-list, .chat-box)::-webkit-scrollbar{
     width: 0px;
 }
 .users-list a{
@@ -191,4 +192,87 @@ body{
 }
 .users-list .status-dot .offline{
     color: #ccc;
+}
+
+/* Chat area CSS Code */
+
+.chat-area header {
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+}
+.chat-area header .back-icon{
+    font-size: 18px;
+    color: #000;
+}
+.chat-area header img{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin: 0 15px;
+}
+.chat-area header span{
+    font-size: 17px;
+    font-weight: 500;
+}
+.chat-box{
+    height: 450px;
+    background: #f7f7f7;
+    padding: 10px 30px 20px 30px;
+    box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
+                inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+    overflow-y: auto;
+}
+.chat-box .chat{
+    margin: 15px 0;
+}
+.chat-box .chat p{
+    word-wrap: break-word;
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgb(0 0 0 / 8%),
+                0 16px 16px -16px rgb(0 0 0 / 10%);
+}
+.chat-box .outgoing{
+    display: flex;
+}
+.outgoing .details{
+    max-width: calc(100% - 130px);
+    margin-left: auto;
+}
+.outgoing .details p{
+    background-color: #333;
+    color: #fff;
+    border-radius: 18px 18px 0 18px;
+}
+.chat-box .incoming{
+    display: flex;
+    align-items: flex-end;
+}
+.chat-box .incoming img{
+    width: 30px;
+    height: 30px;
+}
+.incoming .details{
+    max-width: calc(100% - 130px);
+    margin-right: auto;
+    margin-left: 10px;
+}
+.incoming .details p{
+    background: #fff;
+    color: #333;
+    border-radius: 18px 18px 18px 0;
+}
+.chat-area .typing-area{
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.typing-area input{
+    height: 45px;
+    width: calc(100% - 58px);
+    font-size: 17px;
+    border: 1px solid #ccc;
+    padding: 0 13px;
+    border-radius: 5px;
+    outline: none;
 }
