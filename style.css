@@ -93,23 +93,29 @@ body{
 .users{
     padding: 25px 30px;
 }
-.users header{
+.users header,
+.users-list a{
     display: flex;
     padding-bottom: 20px;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
 }
 .wrapper img {
     object-fit: cover;
     border-radius: 50%;
 }
-.users header .content{
+:is(.users, .users-list) .content{
     display: flex;
+    align-items: center;
 }
 .users header .content img{
     width: 50px;
     height: 50px;
+}
+:is(.users-list, .users) .details {
+    margin-left: 15px;
+    color: #000;
 }
 .users header .details span{
     font-size: 18px;
@@ -153,4 +159,36 @@ body{
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 17px;
+}
+.users-list{
+    max-height: 350px;
+    overflow-y: auto;
+}
+.users-list::-webkit-scrollbar{
+    width: 0px;
+}
+.users-list a{
+    padding-left: 15px;
+    margin-top: 15px;
+    page-break-after: 10px;
+    border-bottom-color:  #f1f1f1;
+}
+.users-list a:last-child{
+    border: none;
+    margin-bottom: 0px;
+}
+.users-list a .content img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.users-list a .content p{
+    color: #67676a;
+}
+.users-list .status-dot{
+    font-size: 12px;
+    color: #458669;
+}
+.users-list .status-dot .offline{
+    color: #ccc;
 }
