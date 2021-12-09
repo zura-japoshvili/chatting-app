@@ -31,7 +31,7 @@
                     <div class="field button">
                         <input type="submit" value="Continue To Chat">
                     </div>
-                    <div class="link">Already signed up? <a href="#">Login in</a></div>
+                    <div class="link">Already signed up? <a href="login.php">Login in</a></div>
             </form>
         </section>
     </div>

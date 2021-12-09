@@ -1,4 +1,4 @@
-const form = document.querySelector('.signup form'),
+const form = document.querySelector('.login form'),
 continueBtn = document.querySelector('.button'),
 errorText = document.querySelector('.error-txt');
 
@@ -7,7 +7,7 @@ form.onsubmit = (e) => {
 }
 continueBtn.onclick = ()=> {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "php/signupValid.php", true);
+    xhr.open("POST", "php/loginValid.php", true);
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
