@@ -5,28 +5,28 @@
     <div class="wrapper">
         <section class="form signup">
             <header>Real Time Chat App</header>
-            <form action="#">
+            <form action="#" enctype="multipart/form-data">
                 <div class="error-txt">Error Msg</div>
                     <div class="field input">
                         <label for="">FirstName</label>
-                        <input type="text" placeholder="Enter your name">
+                        <input type="text" name="fname" placeholder="Enter your name">
                     </div>
                     <div class="field input">
                         <label for="">Last name</label>
-                        <input type="text" placeholder="Enter your last name">
+                        <input type="text" name="lname" placeholder="Enter your last name">
                     </div>
                     <div class="field input">
                         <label for="">Email Address</label>
-                        <input type="text" placeholder="Enter your Email">
+                        <input type="text" name="email" placeholder="Enter your Email">
                     </div>
                     <div class="field input">
                         <label for="">password</label>
-                        <input type="password" placeholder="Enter password">
+                        <input type="password" name="pass" placeholder="Enter password">
                         <i class="fas fa-eye"></i>
                     </div>
                     <div class="field image">
                         <label for="">Select image</label>
-                        <input type="file">
+                        <input type="file" name="image">
                     </div>
                     <div class="field button">
                         <input type="submit" value="Continue To Chat">
