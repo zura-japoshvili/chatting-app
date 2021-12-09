@@ -1,22 +1,22 @@
 <?php 
     require_once "config.php";
+    session_start();
 
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $pass = $_POST['pass'];
-    $pass = password_hash($pass, PASSWORD_DEFAULT);
     $email = $_POST['email'];
 
-    if(!empty($fname) or !empty($lname) or!empty($email) or!empty($pass)){
+    if(!empty($fname) and !empty($lname) and !empty($email) and !empty($pass)){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $statement = $pdo->prepare("SELECT email FROM users");
+            $statement = $pdo->prepare("SELECT email FROM users WHERE email = '${email}'");
             $statement->execute();
             $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-            if(in_array($email, $data) === true){
-                echo "arsebobs";
+            if(!empty($data)){
+                echo "This email already exist";
             }else{
                 if(isset($_FILES['image'])){
-                    $file_name = $_FILES['image'];
+                    $file_name = $_FILES['image']['name'];
                     $img_type = $_FILES['image']['type'];
                     $tmp_name = $_FILES['image']['tmp_name'];
 
@@ -29,7 +29,8 @@
                         $time = time();
 
                         $new_img_name = $file_name . $time; 
-                        if(move_uploaded_file($tmp_name, 'images/'. $new_img_name)){
+                        if(move_uploaded_file($tmp_name, '../images/'. $new_img_name)){
+                            $pass = password_hash($pass, PASSWORD_DEFAULT);
                             $status = "Active now";
 
                             $random_id = rand(time(), 10000000);
@@ -46,6 +47,12 @@
                             $statement->bindValue(':status', $status);
 
                             $statement->execute();
+
+                            $dataFrom_db = $pdo->prepare("SELECT * FROM users WHERE email = '{$email}'");
+                            $dataFrom_db->execute();
+                            $email_db = $dataFrom_db->fetchAll(PDO::FETCH_ASSOC);
+                            $_SESSION['unique_id'] = $email_db[0]['unique_id'];
+                            echo "success";
                         }
                     }else{
                         echo "Please select an image - png, jpg, jpeg";
@@ -54,7 +61,7 @@
             }
         }
     }else{
-        echo "carielia jigg";
+        echo "Please fill every field";
     }
 
 ?>
