@@ -28,7 +28,7 @@
                     if(in_array($img_ext, $extentions) === true){
                         $time = time();
 
-                        $new_img_name = $file_name . $time; 
+                        $new_img_name = $time . $file_name; 
                         if(move_uploaded_file($tmp_name, '../images/'. $new_img_name)){
                             $pass = password_hash($pass, PASSWORD_DEFAULT);
                             $status = "Active now";
