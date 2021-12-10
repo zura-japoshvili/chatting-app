@@ -18,7 +18,7 @@
             if($i['unique_id'] === $_SESSION['unique_id']){
                 continue;
             }
-            $output .= '<a href="#">
+            $output .= '<a href="chat.php?user_id='.$i['unique_id'].'">
                         <div class="content">
                             <img src="'."images/".$i['image'].'" alt="">
                             <div class="details">
