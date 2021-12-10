@@ -1,5 +1,6 @@
 <?php 
     require_once "config.php";
+    session_start();
     $statement = $pdo->prepare("SELECT * FROM users");
     $statement->execute();
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -11,6 +12,9 @@
         $output = 'No users available now';
     }else{
         foreach($data as $i){
+            if($i['unique_id'] === $_SESSION['unique_id']){
+                continue;
+            }
             $output .= '<a href="#">
                         <div class="content">
                             <img src="'."images/".$i['image'].'" alt="">
