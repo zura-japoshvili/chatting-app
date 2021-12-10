@@ -1,15 +1,27 @@
 <?php 
-    require_once './views/header.php'
+    require_once './views/header.php';
+    require_once './php/config.php';
+
+    session_start();
+
+    if(!isset($_SESSION['unique_id'])){
+        header("location: login.php");
+    }
+
+    $statement = $pdo->prepare("SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+    $statement->execute();
+    $userData = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <body>
     <div class="wrapper">
         <section class="users">
             <header>
                 <div class="content">
-                    <img src="img.jpg" alt="">
+                    <img src="images/<?php echo $userData[0]['image']  ?>" alt="">
                     <div class="details">
-                        <span>Zura Japp</span>
-                        <p>Active now</p>
+                        <span><?php echo $userData[0]['fname'] . " " . $userData[0]['lname']  ?></span>
+                        <p><?php echo $userData[0]['status'] ?></p>
                     </div>
                 </div>
                 <a href="#" class="logout">Log Out</a>
@@ -20,66 +32,6 @@
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="users-list">
-                <a href="#">
-                    <div class="content">
-                        <img src="img.jpg" alt="">
-                        <div class="details">
-                            <span>Zura Japp</span>
-                            <p>This is test message</p>
-                        </div>
-                    </div>
-                    <div class="status-dot"><i class="fas fa-circle"></i></div>
-                </a>
-                <a href="#">
-                    <div class="content">
-                        <img src="img.jpg" alt="">
-                        <div class="details">
-                            <span>Zura Japp</span>
-                            <p>This is test message</p>
-                        </div>
-                    </div>
-                    <div class="status-dot"><i class="fas fa-circle"></i></div>
-                </a>
-                <a href="#">
-                    <div class="content">
-                        <img src="img.jpg" alt="">
-                        <div class="details">
-                            <span>Zura Japp</span>
-                            <p>This is test message</p>
-                        </div>
-                    </div>
-                    <div class="status-dot"><i class="fas fa-circle"></i></div>
-                </a>
-                <a href="#">
-                    <div class="content">
-                        <img src="img.jpg" alt="">
-                        <div class="details">
-                            <span>Zura Japp</span>
-                            <p>This is test message</p>
-                        </div>
-                    </div>
-                    <div class="status-dot"><i class="fas fa-circle"></i></div>
-                </a>
-                <a href="#">
-                    <div class="content">
-                        <img src="img.jpg" alt="">
-                        <div class="details">
-                            <span>Zura Japp</span>
-                            <p>This is test message</p>
-                        </div>
-                    </div>
-                    <div class="status-dot"><i class="fas fa-circle"></i></div>
-                </a>
-                <a href="#">
-                    <div class="content">
-                        <img src="img.jpg" alt="">
-                        <div class="details">
-                            <span>Zura Japp</span>
-                            <p>This is test message</p>
-                        </div>
-                    </div>
-                    <div class="status-dot"><i class="fas fa-circle"></i></div>
-                </a>
             </div>
         </section>
     </div>

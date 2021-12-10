@@ -1,5 +1,7 @@
 <?php 
-    require_once './views/header.php'
+    require_once './views/header.php';
+
+
 ?>
 <body>
     <div class="wrapper">
