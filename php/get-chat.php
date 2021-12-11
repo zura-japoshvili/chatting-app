@@ -17,14 +17,12 @@
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $msg = $i['message'];
 
-        if($i['message'] == ''){
-            $msg = 'The message field is empty';
-        }
 
         if(!empty($data)){
             foreach($data as $i){
+                $msg = $i['message'];
+
                 if($i['outgoing_msg_id'] == $outgoing){
                     $output .= '<div class="chat outgoing">
                                     <div class="details">

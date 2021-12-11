@@ -22,7 +22,13 @@
             $lastMsg->execute();
             $LastMessage = $lastMsg->fetchAll(PDO::FETCH_ASSOC);
 
-            $msg = $LastMessage[0]['message'];
+            $msg = '';
+
+            if(empty($LastMessage)){
+                $msg = 'The message field is empty';
+            }else{
+                $msg = $LastMessage[0]['message'];
+            }
 
             (strlen($msg) > 28) ? $msg = substr($msg, 0, 28). '...' : $msg = $msg;
 
