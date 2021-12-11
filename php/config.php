@@ -1,13 +1,4 @@
 <?php 
-
-    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    $cleardb_server = $cleardb_url["host"];
-    $cleardb_username = $cleardb_url["user"];
-    $cleardb_password = $cleardb_url["pass"];
-    $cleardb_db = substr($cleardb_url["path"],1);
-
-    $active_group = 'default';
-    $query_builder = TRUE;
-    $pdo = new PDO($cleardb_url, $cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    $pdo = new PDO('mysql:host=eu-cdbr-west-02.cleardb.net;dbname=heroku_56cd6d9f36ae170','bb625332ab8163','8f4bf382');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 ?>
