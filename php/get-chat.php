@@ -17,19 +17,25 @@
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        $msg = $i['message'];
+
+        if($i['message'] == ''){
+            $msg = 'The message field is empty';
+        }
+
         if(!empty($data)){
             foreach($data as $i){
                 if($i['outgoing_msg_id'] == $outgoing){
                     $output .= '<div class="chat outgoing">
                                     <div class="details">
-                                        <p>'. $i["message"].'</p>
+                                        <p>'. $msg .'</p>
                                     </div>
                                 </div>';
                 }else{
                     $output .= '<div class="chat incoming">
                                     <img src="images/'. $i['image'].'" alt="">
                                     <div class="details">
-                                        <p>'. $i["message"].'</p>
+                                        <p>'. $msg .'</p>
                                     </div>
                                 </div>';
                 }
