@@ -17,8 +17,10 @@
             }
 
             $lastMsg = $pdo->prepare("SELECT * FROM messages 
-            WHERE (outgoing_msg_id = '{$i['unique_id']}' OR incoming_msg_id = {$i['unique_id']}) 
+            WHERE (outgoing_msg_id = '{$_SESSION['unique_id']}' AND incoming_msg_id = {$i['unique_id']}) 
+            OR(outgoing_msg_id = {$i['unique_id']}  AND incoming_msg_id = '{$_SESSION['unique_id']}') 
             ORDER BY msg_id DESC LIMIT 1");
+
             $lastMsg->execute();
             $LastMessage = $lastMsg->fetchAll(PDO::FETCH_ASSOC);
 
