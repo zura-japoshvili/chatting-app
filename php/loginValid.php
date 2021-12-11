@@ -1,7 +1,9 @@
 <?php 
         require_once "config.php";
         session_start();
-    
+
+        $status = 'Active now';
+
         $pass = $_POST['pass'];
         $email = $_POST['email'];
 
@@ -14,6 +16,9 @@
             }else{
                 if(password_verify($pass, $data[0]['password'])){
                     $_SESSION['unique_id'] = $data[0]['unique_id'];
+                    $setStatus = $pdo->prepare("UPDATE users SET status = '{$status}' 
+                        WHERE unique_id = '{$data[0]['unique_id']}' ");
+                    $setStatus->execute();
                     echo "success";
                 }else{
                     echo "Password isn't match !";

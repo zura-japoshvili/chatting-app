@@ -12,11 +12,11 @@
         $statement = $pdo->prepare("SELECT * FROM messages 
                 LEFT JOIN users ON users.unique_id = messages.outgoing_msg_id
                 WHERE (outgoing_msg_id = '{$outgoing}' AND incoming_msg_id = {$incoming})
-                OR (outgoing_msg_id = '{$incoming}' AND incoming_msg_id = {$outgoing})");
+                OR (outgoing_msg_id = '{$incoming}' AND incoming_msg_id = {$outgoing}) ORDER BY msg_id");
         
         $statement->execute();
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($data);
+
         if(!empty($data)){
             foreach($data as $i){
                 if($i['outgoing_msg_id'] == $outgoing){
