@@ -1,4 +1,5 @@
 <?php 
+    $page_name = 'Login In'; 
     require_once '../views/header.php';
     
 

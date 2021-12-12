@@ -19,6 +19,6 @@
             $statement->execute();
         }
     }else{
-        header('Location: ../login.php');
+        header('Location: ../public/login.php');
     }
 ?>

@@ -11,8 +11,8 @@
         session_unset();
         session_destroy();
 
-        header('Location: ../login.php');
+        header('Location: ../public/login.php');
     }else{
-        header('Location: ../login.php');
+        header('Location: ../public/login.php');
     }
 ?>

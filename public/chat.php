@@ -1,10 +1,11 @@
 <?php 
+    $page_name = 'Chatting Space'; 
     require_once '../views/header.php';
     require_once '../php/config.php';
     session_start();
     
     if(!isset($_SESSION['unique_id'])){
-        header("location: login.php");
+        header('Location: ../public/login.php');
     }
     $useId = $_GET['user_id'];
 

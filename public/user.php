@@ -1,6 +1,8 @@
-<?php 
+<?php
+    $page_name = 'Users'; 
     require_once '../views/header.php';
     require_once '../php/config.php';
+    
 
     session_start();
 
@@ -24,7 +26,7 @@
                         <p><?php echo $userData[0]['status'] ?></p>
                     </div>
                 </div>
-                <a href="php/logout.php?logout_id=<?php echo $userData[0]['unique_id']?>" class="logout">Log Out</a>
+                <a href="../php/logout.php?logout_id=<?php echo $userData[0]['unique_id']?>" class="logout">Log Out</a>
             </header>
             <div class="search">
                 <span class="text">Select an user to start chat</span>

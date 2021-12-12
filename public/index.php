@@ -1,4 +1,5 @@
-<?php 
+<?php
+    $page_name = 'Sign Up';  
     require_once '../views/header.php'
 ?>
 <body>
