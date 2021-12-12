@@ -39,7 +39,7 @@
 
             $output .= '<a href="chat.php?user_id='.$i['unique_id'].'">
                         <div class="content">
-                            <img src="'."images/".$i['image'].'" alt="">
+                            <img src="'."../images/".$i['image'].'" alt="">
                             <div class="details">
                                 <span>'.$i['fname']. " " .$i['lname'].'</span>
                                 <p>'.$msg.'</p>

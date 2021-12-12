@@ -1,6 +1,6 @@
 <?php 
-    require_once './views/header.php';
-    require_once 'php/config.php';
+    require_once '../views/header.php';
+    require_once '../php/config.php';
     session_start();
     
     if(!isset($_SESSION['unique_id'])){
@@ -18,7 +18,7 @@
         <section class="chat-area">
             <header>
                 <a href="user.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-                <img src="images/<?php echo $userData[0]['image'] ?>" alt="">
+                <img src="../images/<?php echo $userData[0]['image'] ?>" alt="">
                 <div class="details">
                     <span><?php echo $userData[0]['fname'] . " " . $userData[0]['lname']  ?></span>
                     <p><?php echo $userData[0]['status'] ?></p>
